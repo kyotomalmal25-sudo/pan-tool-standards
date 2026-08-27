@@ -1,0 +1,2 @@
+# 改行は LF に統一する（_headers の解釈ずれを防ぐ）
+* text=auto eol=lf

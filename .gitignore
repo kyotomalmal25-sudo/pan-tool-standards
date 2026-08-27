@@ -1,0 +1,21 @@
+# ローカル確認用。公開もデプロイもしない
+serve.mjs
+
+# Cloudflare / wrangler のローカル生成物・秘密値
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+# 依存関係（現状は不使用。将来の誤コミット防止）
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*~
