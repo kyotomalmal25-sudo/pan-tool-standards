@@ -1,5 +1,9 @@
-# Cloudflare Pages 設定
-# 公開するのは public/ のみ。serve.mjs とこのファイルはアップロードされない。
+# Cloudflare 設定
+# Worker スクリプトを持たない、静的アセットのみの構成。
+# main を指定しないことで、public/ 配下がそのまま配信される。
+# 公開されるのは public/ のみ。serve.mjs とこのファイルはアップロードされない。
 name = "pan-tool-standards"
-pages_build_output_dir = "public"
 compatibility_date = "2026-08-27"
+
+[assets]
+directory = "./public"

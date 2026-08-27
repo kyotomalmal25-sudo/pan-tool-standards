@@ -13,7 +13,7 @@ public/            公開対象（Cloudflare Pages の出力ディレクトリ�
 ├─ regional.html   地域規格と整合化（12地域）
 ├─ committee.html  技術委員会と審議手続
 ├─ assets/base.css 全ページ共通のスタイル
-└─ _headers        Cloudflare Pages 用のヘッダー設定
+└─ _headers        配信時のヘッダー設定
 ```
 
 `_headers` では `script-src 'none'` を指定している。サイトの奥付に「本サイトはスクリプトを使用していない」と
@@ -21,15 +21,20 @@ public/            公開対象（Cloudflare Pages の出力ディレクトリ�
 
 ## デプロイ
 
-Cloudflare Pages（GitHub 連携）。`main` への push で自動デプロイされる。
+Cloudflare Workers の静的アセット配信（GitHub 連携）。`main` への push で自動デプロイされる。
 
-| 設定項目 | 値 |
-|---|---|
-| Framework preset | None |
-| Build command | （空欄） |
-| Build output directory | `public` |
+Worker スクリプトは持たない。`wrangler.toml` で `main` を指定せず `[assets]` のみを置いているため、
+`public/` 配下がそのまま配信される。
 
-`wrangler.toml` の `pages_build_output_dir` にも同じ値を書いてある。
+```toml
+name = "pan-tool-standards"
+compatibility_date = "2026-08-27"
+
+[assets]
+directory = "./public"
+```
+
+ビルド工程がないため、ビルドコマンドは設定しない。
 
 ## ローカル確認
 
